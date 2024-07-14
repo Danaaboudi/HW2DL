@@ -26,11 +26,13 @@ import java.util.List;
 public class MessageAdapter extends RecyclerView.Adapter<MessageViewHolder> {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     List<Message> Messages;
 
     public MessageAdapter() {
         super();
         Messages = new ArrayList<>();
+
         db.collection("Messages")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

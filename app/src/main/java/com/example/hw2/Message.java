@@ -17,6 +17,7 @@ public class Message implements Serializable {
         ID = String.valueOf(System.currentTimeMillis());
     }
 
+
     public Message(String a, String n, String t, String i) {
         Avatar = a;
         Name = n;
