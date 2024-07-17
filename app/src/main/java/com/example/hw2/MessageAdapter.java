@@ -1,5 +1,4 @@
 package com.example.hw2;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -75,18 +74,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageViewHolder> {
         Glide.with(holder.Avatar).load(message.Avatar).into(holder.Avatar);
         holder.Name.setText(message.Name);
         holder.Text.setText(message.Text);
-        holder.Card.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),MessageActivity.class);
-                //intent.putExtra("message",message);
-                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        (Activity) v.getContext(),
-                        holder.Card,
-                        "cardTransition"
-                );
-                v.getContext().startActivity(intent,options.toBundle());
-            }
+        holder.Card.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(),MessageActivity.class);
+            intent.putExtra("message",message);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    (Activity) v.getContext(),
+                    holder.Card,
+                    "cardTransition"
+            );
+            v.getContext().startActivity(intent,options.toBundle());
         });
     }
 

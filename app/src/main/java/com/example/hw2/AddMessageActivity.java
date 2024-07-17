@@ -38,6 +38,8 @@ public class AddMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_message);
 
+
+        addPhoto = findViewById(R.id.addPhoto);
         takePictureLauncher = registerForActivityResult(new ActivityResultContracts.TakePicture(), result -> {
             if (result) {
                 addPhoto.setImageURI(CurrentImage);
@@ -81,11 +83,6 @@ public class AddMessageActivity extends AppCompatActivity {
                         });
                     }
                 });
-
-
-
-
-
             }
         });
     }
